@@ -37,16 +37,24 @@ class _CounterAnimatorState extends State<CounterAnimator> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return new GestureDetector(
-      child: Text(
-        _controller.isAnimating
-            ? (_counter).toStringAsFixed(2) : "Let's Begin",
-        style: TextStyle(
-          fontSize: 24.0 * _controller.value + 16.0
+//      child: Text(
+//        _controller.isAnimating
+//            ? (_counter).toStringAsFixed(2) : "Let's Begin",
+//        style: TextStyle(
+//          fontSize: 24.0 * _controller.value + 16.0
+//        ),
+//      ),
+      child: new RaisedButton(
+        padding: EdgeInsets.all(10.0),
+        onPressed: (){_controller.forward(from: 0.0);},
+        color: Colors.orange,
+        child: Text(
+          "Animated Button",
+          style: TextStyle(
+            fontSize: 2.0 * animation.value + 20.0
+          ),
         ),
       ),
-      onTap: (){
-        _controller.forward(from: 0.0);
-      },
     );
   }
 }
